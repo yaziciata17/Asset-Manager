@@ -1,0 +1,62 @@
+You are an expert UX/UI web developer and copywriter specializing in high-converting medical device and clinical training websites. 
+
+Build a complete web architecture, page layout, and copy strategy for a specialized medical training center website: "GT Metabolic Solutions x Cerrahpaşa University Hospital Training Center."
+
+---
+
+## 1. BRAND & CORE IDENTITY
+* Brand: GT Metabolic Solutions (Distributed by ITEM Medical Technologies)
+* Academic Partner: Cerrahpaşa Faculty of Medicine (Cerrahpaşa University Hospital)
+* Core Technology: Sutureless, staple-free Magnetic Compression Anastomosis (using MAG-01 through MAG-06 magnets, DVS delivery systems, and LPD placement instruments).
+* Tone: Elite clinical prestige, innovative, evidence-based, clean, and highly authoritative.
+
+---
+
+## 2. PRICING & GATING LOGIC (CRITICAL)
+* Training Certification Pricing: PUBLICLY VISIBLE. Clear, fixed pricing tiers for attending surgeons to register for training and obtain their official co-branded Cerrahpaşa certification.
+* Device & Hardware Pricing: STRICTLY HIDDEN / OFFLINE. Do not list any prices for MAG kits, DVS delivery systems, or LPD tool sets on the public site. Replace device purchasing options with a "Request Institutional Equipment Quote" button that triggers a lead capture form for hospital procurement departments.
+
+---
+
+## 3. MAIN PAGE STRUCTURE & COMPONENT BREAKDOWN
+
+### A. HERO SECTION
+* Headline: Bold value proposition combining magnetic anastomosis innovation with Cerrahpaşa's academic prestige.
+* Visuals: Dual logo layout (GT Metabolic Solutions + Cerrahpaşa Faculty of Medicine).
+* Primary CTAs:
+  1. "View Certification Workshops" (Primary button -> scrolls to training section)
+  2. "Request Institutional Quote" (Secondary button -> triggers lead form)
+
+### B. CERTIFICATION & WORKSHOP TIERS (Public Pricing)
+Create a modern, tiered pricing card section for surgeon training:
+1. Tier 1: Observer & Didactic Module (Foundational theory + live OR observation)
+2. Tier 2: Hands-On Skills & Wet-Lab (Simulation, cadaveric/wet-lab practice with LPD tools and mock magnets, hands-on technique coaching)
+3. Tier 3: Full Proctoring & Hospital Certification (1-on-1 proctoring at Cerrahpaşa with lead surgical faculty, post-training case support, official co-branded certificate)
+* Feature List: Clear breakdown of what each certification tier includes, dates, and direct "Enroll Now" buttons.
+
+### C. SURGICAL VIDEO VAULT & TECHNIQUE CENTER
+* Medical Professional Disclaimer modal / checkbox prior to viewing ("I am a licensed healthcare professional").
+* Interactive video player interface for surgical footage with procedural chapter timestamps:
+  1. Target Site Preparation & Measurement
+  2. LPD Tool & Magnet Insertion
+  3. Magnetic Alignment & Coupling Verification
+  4. Post-Operative Mating Check
+* CTA below video player: "Register for Hands-On Wet Lab at Cerrahpaşa"
+
+### D. CLINICAL PUBLICATIONS & EVIDENCE LIBRARY
+* Grid layout for peer-reviewed research papers and clinical trial results.
+* Filter tags: "Anastomotic Leak Rates", "Bariatric Revisions", "Colorectal Procedures", "Surgical Speed".
+* Each paper card must show: Title, Journal/Year, Key Takeaway Metric (e.g., "0% Leak Rate in 50 Cases"), and a "Download Study PDF" button (triggers a quick email/hospital verification pop-up).
+
+### E. INSTITUTIONAL PROCUREMENT & QUOTE FORM (Lead Capture)
+* Clean form designed for Hospital Department Heads and Procurement Officers requesting equipment proposals.
+* Form fields: Full Name, Surgical Specialty / Title, Hospital / Health System Name, Official Email, Phone Number, Estimated Annual Case Volume.
+
+---
+
+## 4. DESIGN & STYLING INSTRUCTIONS
+* Color Palette: Deep clinical blue, dark navy, clean medical white, and metallic grey accents.
+* Typography: Modern sans-serif (e.g., Inter, Montserrat, or Plus Jakarta Sans) for clean readability.
+* UI Components: High-contrast buttons, sticky navigation bar with dual brand logos, filterable cards, clean modal pop-ups, and a modern video layout.
+
+Generate the full visual layout structure, section-by-section copywriting, and interactive component specs according to these guidelines.

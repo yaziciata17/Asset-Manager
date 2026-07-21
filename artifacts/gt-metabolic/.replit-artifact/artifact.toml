@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "GT Metabolic Solutions Training Center"
+version = "1.0.0"
+id = "artifacts/gt-metabolic"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21634
+
+[services.development]
+run = "pnpm --filter @workspace/gt-metabolic run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gt-metabolic", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/gt-metabolic/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21634"
+BASE_PATH = "/"
