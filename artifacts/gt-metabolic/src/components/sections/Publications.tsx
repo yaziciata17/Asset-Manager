@@ -1,92 +1,115 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { FileText, Download } from "lucide-react"
+import { FileText, ExternalLink } from "lucide-react"
+
+type FilterKey = "All" | "Bariatric" | "Colorectal" | "Safety Data"
+
+const filters: FilterKey[] = ["All", "Bariatric", "Colorectal", "Safety Data"]
+
+const publications: {
+  id: string
+  title: string
+  journal: string
+  year: string
+  metric: string
+  tags: FilterKey[]
+  pdfUrl: string
+}[] = [
+  {
+    id: "pub1",
+    title: "Sutureless Magnetic Compression Anastomosis in Bariatric Revision Surgery: A Multi-Center Analysis",
+    journal: "Annals of Surgery",
+    year: "2024",
+    metric: "0% Anastomotic Leak Rate in 50 Cases",
+    tags: ["Bariatric", "Safety Data"],
+    pdfUrl: "https://example.com/studies/pub1.pdf",
+  },
+  {
+    id: "pub2",
+    title: "Magnetic Anastomosis in Revisional Bariatric Surgery: Safety and Efficacy at 12 Months",
+    journal: "Obesity Surgery",
+    year: "2023",
+    metric: "Zero Major Complications in 34 Revision Cases",
+    tags: ["Bariatric", "Safety Data"],
+    pdfUrl: "https://example.com/studies/pub2.pdf",
+  },
+  {
+    id: "pub3",
+    title: "Long-term Patency and Stricture Rates Following Magnetic Colorectal Anastomosis",
+    journal: "Diseases of the Colon & Rectum",
+    year: "2023",
+    metric: "96% Primary Patency at 24 Months",
+    tags: ["Colorectal"],
+    pdfUrl: "https://example.com/studies/pub3.pdf",
+  },
+  {
+    id: "pub4",
+    title: "Colorectal Reconstruction Using MAG-05 System: Prospective Cohort Study",
+    journal: "British Journal of Surgery",
+    year: "2024",
+    metric: "Mean Operative Time Reduced by 38%",
+    tags: ["Colorectal"],
+    pdfUrl: "https://example.com/studies/pub4.pdf",
+  },
+  {
+    id: "pub5",
+    title: "Ischemia-Induced Necrosis via Magnetic Compression: Histological Safety Evaluation",
+    journal: "Surgical Endoscopy",
+    year: "2022",
+    metric: "No Adverse Tissue Events in 60-Case Series",
+    tags: ["Safety Data"],
+    pdfUrl: "https://example.com/studies/pub5.pdf",
+  },
+  {
+    id: "pub6",
+    title: "Comparative Operative Times: Manual Suturing vs. MAG-03 System in Gastrojejunostomy",
+    journal: "Journal of Gastrointestinal Surgery",
+    year: "2023",
+    metric: "42% Reduction in Anastomosis Time",
+    tags: ["Bariatric"],
+    pdfUrl: "https://example.com/studies/pub6.pdf",
+  },
+]
 
 export function Publications() {
-  const [filter, setFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("All")
 
-  const filters = ["All", "Anastomotic Leak Rates", "Bariatric Revisions", "Colorectal Procedures", "Surgical Speed"];
-
-  const publications = [
-    {
-      id: "pub1",
-      title: "Sutureless Magnetic Compression Anastomosis in Bariatric Revision Surgery: A Multi-Center Analysis",
-      journal: "Annals of Surgery · 2024",
-      metric: "0% Anastomotic Leak Rate in 50 Cases",
-      tags: ["Bariatric Revisions", "Anastomotic Leak Rates"],
-      href: "#",
-    },
-    {
-      id: "pub2",
-      title: "Comparative Operative Times: Manual Suturing vs. MAG-03 System in Gastrojejunostomy",
-      journal: "Journal of Gastrointestinal Surgery · 2023",
-      metric: "42% Reduction in Anastomosis Time",
-      tags: ["Surgical Speed"],
-      href: "#",
-    },
-    {
-      id: "pub3",
-      title: "Long-term Patency and Stricture Rates Following Magnetic Colorectal Anastomosis",
-      journal: "Diseases of the Colon & Rectum · 2023",
-      metric: "96% Primary Patency at 24 Months",
-      tags: ["Colorectal Procedures"],
-      href: "#",
-    },
-    {
-      id: "pub4",
-      title: "Ischemia-Induced Necrosis via Magnetic Compression: Histological Evaluation of Healing Tissue",
-      journal: "Surgical Endoscopy · 2022",
-      metric: "Superior Tissue Remodeling Profile",
-      tags: ["Anastomotic Leak Rates"],
-      href: "#",
-    },
-    {
-      id: "pub5",
-      title: "Magnetic Anastomosis in Revisional Bariatric Surgery: Safety and Efficacy at 12 Months",
-      journal: "Obesity Surgery · 2023",
-      metric: "Zero Major Complications in 34 Revision Cases",
-      tags: ["Bariatric Revisions"],
-      href: "#",
-    },
-    {
-      id: "pub6",
-      title: "Colorectal Reconstruction Using MAG-05 System: Prospective Cohort Study",
-      journal: "British Journal of Surgery · 2024",
-      metric: "Mean Operative Time Reduced by 38%",
-      tags: ["Colorectal Procedures", "Surgical Speed"],
-      href: "#",
-    },
-  ];
-
-  const filteredPubs = filter === "All"
-    ? publications
-    : publications.filter(p => p.tags.includes(filter));
+  const filtered =
+    activeFilter === "All"
+      ? publications
+      : publications.filter((p) => p.tags.includes(activeFilter))
 
   return (
     <section className="py-24 bg-white" id="publications">
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Clinical Evidence</h2>
+            <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">
+              Clinical Evidence
+            </h2>
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
               Publications & Data
             </h3>
             <p className="text-slate-500 mt-3 text-base">
-              Peer-reviewed research and clinical trial results — open access for all healthcare professionals.
+              Peer-reviewed research and clinical trial results — open access, no login required.
             </p>
           </div>
 
+          {/* Filter Buttons */}
           <div className="flex flex-wrap gap-2">
-            {filters.map(f => (
+            {filters.map((f) => (
               <button
                 key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                  filter === f
-                  ? 'bg-primary text-white shadow-md'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                onClick={() => setActiveFilter(f)}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-150 ${
+                  activeFilter === f
+                    ? "bg-primary text-white shadow-md"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
                 {f}
@@ -95,41 +118,57 @@ export function Publications() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredPubs.map((pub, index) => (
+        {/* Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filtered.map((pub, index) => (
             <motion.div
               key={pub.id}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
+              layout
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
             >
               <Card className="h-full flex flex-col hover:border-primary/50 hover:shadow-md transition-all duration-200 border-slate-200">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 text-primary">
-                      <FileText className="w-5 h-5" />
+
+                {/* Title + Journal */}
+                <CardHeader className="pb-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 text-primary mt-0.5">
+                      <FileText className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-slate-500 mb-1">{pub.journal}</p>
-                      <h4 className="text-base font-bold text-slate-900 leading-snug">{pub.title}</h4>
+                      <p className="text-xs font-semibold text-slate-400 mb-1">
+                        {pub.journal} · {pub.year}
+                      </p>
+                      <h4 className="text-sm font-bold text-slate-900 leading-snug">
+                        {pub.title}
+                      </h4>
                     </div>
                   </div>
                 </CardHeader>
+
+                {/* Key Outcome Badge */}
                 <CardContent className="py-0 flex-1">
-                  <div className="bg-slate-50 border border-slate-100 rounded-md p-3 mb-4 inline-block">
-                    <span className="text-sm font-bold text-primary">{pub.metric}</span>
-                  </div>
+                  <Badge
+                    variant="secondary"
+                    className="bg-blue-50 text-primary border border-blue-100 font-semibold text-xs px-3 py-1.5 rounded-md whitespace-normal text-left leading-snug"
+                  >
+                    {pub.metric}
+                  </Badge>
                 </CardContent>
-                <CardFooter className="pt-4 border-t border-slate-100">
+
+                {/* Download */}
+                <CardFooter className="pt-4 mt-4 border-t border-slate-100">
                   <Button
                     variant="ghost"
-                    className="text-primary hover:text-primary hover:bg-blue-50 px-0 gap-2"
+                    size="sm"
+                    className="text-primary hover:text-primary hover:bg-blue-50 px-0 gap-2 text-sm font-semibold"
                     asChild
                   >
-                    <a href={pub.href} download>
-                      <Download className="w-4 h-4" />
-                      Download Study PDF
+                    <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4" />
+                      Download PDF
                     </a>
                   </Button>
                 </CardFooter>
@@ -137,6 +176,7 @@ export function Publications() {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )
