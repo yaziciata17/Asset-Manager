@@ -1,52 +1,20 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Check } from "lucide-react"
+import { Check, Building2, Globe } from "lucide-react"
 
 export function Workshops() {
-  const tiers = [
-    {
-      name: "Observer & Didactic Module",
-      price: "€1,200",
-      duration: "1 Day",
-      description: "Foundational theory plus live operating room observation at Cerrahpaşa.",
-      features: [
-        "Didactic lectures on MCA principles",
-        "OR observation (2 live cases)",
-        "Comprehensive course materials",
-        "Certificate of Attendance"
-      ],
-      featured: false,
-    },
-    {
-      name: "Hands-On Skills & Wet-Lab",
-      price: "€2,800",
-      duration: "2 Days",
-      description: "Intensive simulation and cadaveric practice with LPD tools and mock magnets.",
-      features: [
-        "Everything in Observer Module",
-        "Half-day wet-lab / cadaveric session",
-        "LPD instrument handling practice",
-        "Technique coaching with senior faculty",
-        "Skills Assessment Certificate"
-      ],
-      featured: false,
-    },
-    {
-      name: "Full Proctoring & Certification",
-      price: "€4,500",
-      duration: "3 Days",
-      description: "The complete certification pathway for independent surgical practice.",
-      features: [
-        "Everything in Hands-On Module",
-        "1-on-1 proctoring (2 clinical cases)",
-        "Post-training case support (3 months)",
-        "Official Cerrahpaşa co-branded certification",
-        "Priority scheduling for future modules"
-      ],
-      featured: true,
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const programIncludes = [
+    "3 Live Surgeries in the Operating Room at Cerrahpaşa",
+    "Hands-on simulation with LPD tools and MAG systems",
+    "1-on-1 mentorship with lead surgical faculty",
+    "Official co-branded Cerrahpaşa University Hospital certification",
+    "Post-training case support access",
   ];
 
   return (
@@ -55,75 +23,155 @@ export function Workshops() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Academic Excellence</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-            Certification Workshops
+            1-Day Surgical Masterclass
           </h3>
           <p className="text-slate-600 text-lg">
-            Train alongside world-class faculty at Cerrahpaşa University Hospital. Choose your pathway to mastering the MAG system.
+            Every surgeon receives the same world-class experience — 3 live cases in the OR,
+            hands-on simulation, and an official co-branded Cerrahpaşa University Hospital certification.
+            No tiered access. One standard of excellence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {tiers.map((tier, index) => (
-            <motion.div
-              key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex"
-            >
-              <Card className={`relative flex flex-col w-full transition-all duration-300 ${tier.featured ? 'border-primary shadow-xl scale-105 z-10' : 'border-slate-200 hover:border-slate-300 hover:shadow-md'}`}>
-                {tier.featured && (
-                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                    <Badge className="bg-primary text-white px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                      Recommended Pathway
-                    </Badge>
+        {/* What's Included */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm px-8 py-7">
+            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Every Masterclass Includes</h4>
+            <ul className="space-y-4">
+              {programIncludes.map((item, i) => (
+                <li key={i} className="flex items-start text-slate-800 font-medium">
+                  <Check className="w-5 h-5 text-primary mr-3 shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+          {/* Turkish Candidates */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0 }}
+            className="flex"
+          >
+            <Card className="relative flex flex-col w-full border-slate-200 hover:border-slate-300 hover:shadow-md transition-all duration-300">
+              <CardHeader className="text-center pt-8 pb-4">
+                <div className="flex justify-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                    <Building2 className="w-6 h-6 text-primary" />
                   </div>
-                )}
-                
-                <CardHeader className="text-center pt-8 pb-4">
-                  <CardTitle className="text-xl text-slate-900 mb-2">{tier.name}</CardTitle>
-                  <div className="flex justify-center items-baseline gap-1 mb-2">
-                    <span className="text-4xl font-bold text-slate-900">{tier.price}</span>
-                    <span className="text-slate-500 font-medium">/ surgeon</span>
-                  </div>
-                  <CardDescription className="text-sm font-medium text-blue-600 uppercase tracking-wide">
-                    {tier.duration}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="flex-1 px-6">
-                  <p className="text-sm text-slate-600 mb-6 text-center h-10">
-                    {tier.description}
+                </div>
+                <Badge variant="outline" className="mx-auto mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 border-slate-300 w-fit">
+                  Turkish Candidates
+                </Badge>
+                <CardTitle className="text-xl text-slate-900 mb-3">1-Day Masterclass</CardTitle>
+                <div className="flex justify-center items-baseline gap-1 mb-1">
+                  <span className="text-5xl font-bold text-slate-900">€1,000</span>
+                  <span className="text-slate-500 font-medium">/ surgeon</span>
+                </div>
+              </CardHeader>
+
+              <CardContent className="flex-1 px-6 pt-2">
+                <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-4">
+                  <p className="text-sm text-blue-800 leading-relaxed">
+                    Payments are completed per <strong>Cerrahpaşa University Hospital</strong> financial guidance.
                   </p>
-                  <ul className="space-y-4">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-slate-700">
-                        <Check className={`w-5 h-5 mr-3 shrink-0 ${tier.featured ? 'text-primary' : 'text-slate-400'}`} />
-                        <span className="leading-snug">{feature}</span>
+                </div>
+                <p className="text-sm text-slate-500 text-center">
+                  Full 1-day masterclass program · 3 live OR cases · Official certification
+                </p>
+              </CardContent>
+
+              <CardFooter className="p-6 pt-0 mt-auto">
+                <Button
+                  className="w-full"
+                  variant="outline"
+                  size="lg"
+                  onClick={() => scrollTo('equipment')}
+                >
+                  Enroll Now
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+
+          {/* Non-Turkish Candidates */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex"
+          >
+            <Card className="relative flex flex-col w-full border-primary shadow-xl scale-[1.02] z-10 transition-all duration-300">
+              <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                <Badge className="bg-primary text-white px-4 py-1 text-xs font-bold uppercase tracking-wider">
+                  All-Inclusive Package
+                </Badge>
+              </div>
+
+              <CardHeader className="text-center pt-10 pb-4">
+                <div className="flex justify-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <Badge variant="outline" className="mx-auto mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 border-slate-300 w-fit">
+                  International Candidates
+                </Badge>
+                <CardTitle className="text-xl text-slate-900 mb-3">1-Day Masterclass</CardTitle>
+                <div className="flex justify-center items-baseline gap-1 mb-1">
+                  <span className="text-5xl font-bold text-slate-900">€4,000</span>
+                  <span className="text-slate-500 font-medium">/ surgeon</span>
+                </div>
+              </CardHeader>
+
+              <CardContent className="flex-1 px-6 pt-2">
+                <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 mb-4">
+                  <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Package Includes</h5>
+                  <ul className="space-y-2">
+                    {[
+                      "Masterclass & 3 Live Surgeries",
+                      "Hotel Accommodation (Istanbul)",
+                      "Airport Transfers",
+                      "VIP Istanbul Transport",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center text-sm text-slate-700 font-medium">
+                        <Check className="w-4 h-4 text-primary mr-2 shrink-0" />
+                        {item}
                       </li>
                     ))}
                   </ul>
-                </CardContent>
+                </div>
+                <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+                  <p className="text-sm text-blue-800 leading-relaxed">
+                    Payments are processed directly via <strong>ITEM Medical Technologies</strong>.
+                  </p>
+                </div>
+              </CardContent>
 
-                <CardFooter className="p-6 pt-0 mt-auto">
-                  <Button 
-                    className="w-full" 
-                    variant={tier.featured ? "default" : "outline"}
-                    size="lg"
-                  >
-                    Enroll Now
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
+              <CardFooter className="p-6 pt-4 mt-auto">
+                <Button
+                  className="w-full"
+                  variant="default"
+                  size="lg"
+                  onClick={() => scrollTo('equipment')}
+                >
+                  Enroll Now
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
         </div>
 
         <div className="mt-16 text-center">
           <div className="inline-block bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200 text-sm font-medium text-slate-700">
             <span className="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>
-            Next cohort: <strong className="text-slate-900">September 15–17, 2026</strong> · Istanbul, Turkey
+            Next cohort: <strong className="text-slate-900">September 15, 2026</strong> · Cerrahpaşa University Hospital, Istanbul
           </div>
         </div>
       </div>

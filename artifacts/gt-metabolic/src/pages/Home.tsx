@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { Hero } from "@/components/sections/Hero"
 import { Technology } from "@/components/sections/Technology"
+import { Faculty } from "@/components/sections/Faculty"
 import { Workshops } from "@/components/sections/Workshops"
 import { VideoVault } from "@/components/sections/VideoVault"
 import { Publications } from "@/components/sections/Publications"
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-grow pt-20"> {/* pt-20 to offset the fixed navbar */}
         <Hero />
         <Technology />
+        <Faculty />
         <Workshops />
         <VideoVault />
         <Publications />
