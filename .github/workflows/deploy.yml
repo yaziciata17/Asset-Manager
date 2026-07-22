@@ -37,7 +37,8 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build project
-        run: pnpm run build --filter=./... --if-present || pnpm run build --no-bail
+        run: pnpm run build --filter .
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
