@@ -16,34 +16,43 @@ const publications: {
   year: string
   metric: string
   tags: FilterKey[]
-  pdfUrl: string
+  articleUrl: string
 }[] = [
   {
     id: "pub1",
-    title: "Sutureless Magnetic Compression Anastomosis in Bariatric Revision Surgery",
+    title: "First-in-Human Side-to-Side Duodenoileal Bipartition for Weight Loss and Type 2 Diabetes with the Swallowable Biofragmentable Magnetic Anastomosis System",
     journal: "Annals of Surgery",
     year: "2024",
-    metric: "0% Anastomotic Leak Rate in 50 Cases",
+    metric: "0% Severe Complications & Sutureless Technique",
     tags: ["Bariatric", "Safety Data"],
-    pdfUrl: "/pub1.pdf",
+    articleUrl: "https://www.ovid.com/jnls/journalacs/fulltext/10.1097/xcs.0000000000001384~first-in-human-side-to-side-duodenoileal-bipartition-for",
   },
   {
     id: "pub2",
-    title: "Magnetic Anastomosis in Revisional Bariatric Surgery",
-    journal: "Obesity Surgery",
-    year: "2023",
-    metric: "Zero Major Complications in 34 Revision Cases",
+    title: "Side-to-Side Magnetic Duodeno-Ileostomy in Adults with Severe Obesity With or Without Type 2 Diabetes: Early Outcomes with Prior or Concurrent Sleeve Gastrectomy",
+    journal: "Surgery for Obesity and Related Diseases (SOARD)",
+    year: "2024",
+    metric: "Feasible, Safe & Effective Dual-Bypass Procedure",
     tags: ["Bariatric", "Safety Data"],
-    pdfUrl: "/pub2.pdf",
+    articleUrl: "https://www.soard.org/article/S1550-7289(23)00762-1/fulltext",
   },
   {
     id: "pub3",
-    title: "Comparative Operative Times: Manual Suturing vs. MAG System",
+    title: "Magnetic Duodenoileal Anastomosis with Sleeve Gastrectomy: A Prospective Multicenter Study",
+    journal: "Surgery for Obesity and Related Diseases (SOARD)",
+    year: "2024",
+    metric: "Significant Weight Loss & Diabetes Markers Improvement",
+    tags: ["Bariatric", "Colorectal"],
+    articleUrl: "https://www.soard.org/article/S1550-7289(24)00627-0/abstract",
+  },
+  {
+    id: "pub4",
+    title: "Safety and Efficacy Outcomes of Magnetic Compression Anastomosis Systems in Gastrointestinal Interventions",
     journal: "Journal of Gastrointestinal Surgery",
-    year: "2023",
-    metric: "42% Reduction in Anastomosis Time",
-    tags: ["Bariatric"],
-    pdfUrl: "/pub3.pdf",
+    year: "2024",
+    metric: "High Surgical Precision & Minimal Procedure Time",
+    tags: ["Safety Data", "Colorectal"],
+    articleUrl: "https://www.sciencedirect.com/science/article/pii/S1091255X24001525?via%3Dihub",
   },
 ]
 
@@ -139,9 +148,9 @@ export function Publications() {
                     className="text-primary hover:text-primary hover:bg-blue-50 px-0 gap-2 text-sm font-semibold"
                     asChild
                   >
-                    <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={pub.articleUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" />
-                      Download PDF
+                      Read Article
                     </a>
                   </Button>
                 </CardFooter>
