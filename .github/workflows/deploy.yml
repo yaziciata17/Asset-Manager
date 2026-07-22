@@ -37,7 +37,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build project
-        run: pnpm --filter=@workspace/mockup-sandbox... run build || npx vite build
+        run: cd artifacts/mockup-sandbox && pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
