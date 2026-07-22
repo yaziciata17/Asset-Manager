@@ -43,12 +43,12 @@ jobs:
           BASE_PATH: /
         run: |
           cd artifacts/gt-metabolic && pnpm run build
-          cp ../../CNAME ./dist/CNAME || true
+          cp ../../CNAME ./dist/public/CNAME || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/gt-metabolic/dist'
+          path: './artifacts/gt-metabolic/dist/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
