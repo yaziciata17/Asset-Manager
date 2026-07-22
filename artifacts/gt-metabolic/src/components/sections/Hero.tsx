@@ -41,7 +41,7 @@ export function Hero() {
           
           <p className="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl leading-relaxed">
             The authoritative training program for the MAG-01–MAG-06 magnet systems. 
-            Co-accredited by Cerrahpaşa Faculty of Medicine, setting the global standard for elite surgical innovation.
+            Co-accredited by Cerrahpaşa University Magnetic Surgery Training Center, setting the global standard for elite surgical innovation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -56,9 +56,9 @@ export function Hero() {
               size="lg" 
               variant="outline" 
               className="border-white/30 text-white hover:bg-white/10 h-14 px-8 text-base backdrop-blur-sm"
-              onClick={() => scrollTo('equipment')}
+              onClick={() => scrollTo('magdi')}
             >
-              Request Institutional Quote
+              Learn About MagDI
             </Button>
           </div>
         </motion.div>

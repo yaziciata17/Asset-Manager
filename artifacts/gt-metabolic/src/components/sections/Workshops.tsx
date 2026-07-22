@@ -91,7 +91,7 @@ export function Workshops() {
                   className="w-full"
                   variant="outline"
                   size="lg"
-                  onClick={() => scrollTo('equipment')}
+                  onClick={() => scrollTo('contact')}
                 >
                   Enroll Now
                 </Button>
@@ -159,7 +159,7 @@ export function Workshops() {
                   className="w-full"
                   variant="default"
                   size="lg"
-                  onClick={() => scrollTo('equipment')}
+                  onClick={() => scrollTo('contact')}
                 >
                   Enroll Now
                 </Button>

@@ -46,8 +46,8 @@ export function Technology() {
               ))}
             </ul>
 
-            <Button size="lg" onClick={() => scrollTo('equipment')}>
-              Request Institutional Equipment Quote
+            <Button size="lg" onClick={() => scrollTo('contact')}>
+              Get in Touch
             </Button>
           </motion.div>
 

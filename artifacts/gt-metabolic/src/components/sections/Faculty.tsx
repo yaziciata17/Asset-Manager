@@ -17,7 +17,7 @@ export function Faculty() {
     {
       icon: Award,
       label: "Co-Founder",
-      detail: "Co-founder of GT Metabolic Solutions",
+      detail: "Co-founder of Magnetic Surgery Solutions",
     },
     {
       icon: BookOpen,
@@ -78,7 +78,7 @@ export function Faculty() {
             <div className="lg:col-span-3 bg-slate-800/60 flex flex-col justify-center px-10 py-12">
               <div className="mb-8">
                 <p className="text-slate-300 text-base leading-relaxed mb-4">
-                  Dr. Michel Gagner is the co-founder of GT Metabolic Solutions and the pioneering 
+                  Dr. Michel Gagner is the co-founder of Magnetic Surgery Solutions and the pioneering 
                   surgeon-scientist who invented Magnetic Compression Anastomosis. With more than 
                   three decades at the forefront of minimally invasive surgery, he has transformed 
                   bariatric, colorectal, and upper GI reconstruction globally.
