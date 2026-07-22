@@ -19,18 +19,9 @@ const VIDEOS: {
   videoId?: string
   src?: string
 }[] = [
-  {
-    type: "youtube",
-    videoId: "YOUTUBE_VIDEO_ID_1",   // ← replace with real ID
-  },
-  {
-    type: "youtube",
-    videoId: "YOUTUBE_VIDEO_ID_2",   // ← replace with real ID
-  },
-  {
-    type: "youtube",
-    videoId: "YOUTUBE_VIDEO_ID_3",   // ← replace with real ID
-  },
+  { type: "youtube", videoId: "YOUR_YOUTUBE_ID_1" },
+  { type: "youtube", videoId: "YOUR_YOUTUBE_ID_2" },
+  { type: "youtube", videoId: "YOUR_YOUTUBE_ID_3" },
 ]
 
 // ─── Build embed URL for a given video entry ──────────────────────────────────
