@@ -40,7 +40,9 @@ jobs:
         env:
           PORT: 3000
           BASE_PATH: /
-        run: cd artifacts/gt-metabolic && pnpm run build
+        run: |
+          cd artifacts/gt-metabolic && pnpm run build
+          cp ../../CNAME ./dist/CNAME || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
