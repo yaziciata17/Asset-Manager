@@ -40,12 +40,12 @@ jobs:
         env:
           PORT: 3000
           BASE_PATH: /
-        run: cd artifacts/mockup-sandbox && pnpm run build
+        run: cd artifacts/gt-metabolic && pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/mockup-sandbox/dist'
+          path: './artifacts/gt-metabolic/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
