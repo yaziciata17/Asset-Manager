@@ -15,27 +15,19 @@ import { ShieldCheck, Play } from "lucide-react"
 // label    — title shown on the selector card
 // duration — display string shown on the card (e.g. "14:22")
 const VIDEOS: {
-  label: string
-  duration: string
   type: "youtube" | "vimeo" | "mp4"
   videoId?: string
   src?: string
 }[] = [
   {
-    label: "Target Site Prep",
-    duration: "0:00",
     type: "youtube",
     videoId: "YOUTUBE_VIDEO_ID_1",   // ← replace with real ID
   },
   {
-    label: "Magnet Insertion",
-    duration: "4:32",
     type: "youtube",
     videoId: "YOUTUBE_VIDEO_ID_2",   // ← replace with real ID
   },
   {
-    label: "Alignment Check",
-    duration: "11:15",
     type: "youtube",
     videoId: "YOUTUBE_VIDEO_ID_3",   // ← replace with real ID
   },
@@ -231,34 +223,14 @@ export function VideoVault() {
                           }
                         `}
                       >
-                        {/* Label row */}
-                        <div className="flex items-center justify-between mb-2">
-                          <span
-                            className={`text-xs font-bold uppercase tracking-widest ${
-                              isActive ? "text-blue-400" : "text-slate-500"
-                            }`}
-                          >
-                            Video {i + 1}
-                          </span>
-                          <span
-                            className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${
-                              isActive
-                                ? "bg-blue-500/30 text-blue-300"
-                                : "bg-slate-700 text-slate-400"
-                            }`}
-                          >
-                            {video.duration}
-                          </span>
-                        </div>
-
-                        {/* Title */}
-                        <div
-                          className={`text-sm font-bold ${
-                            isActive ? "text-white" : "text-slate-200 group-hover:text-white"
+                        {/* Label */}
+                        <span
+                          className={`text-sm font-bold uppercase tracking-widest ${
+                            isActive ? "text-white" : "text-slate-300 group-hover:text-white"
                           }`}
                         >
-                          {video.label}
-                        </div>
+                          Video {i + 1}
+                        </span>
 
                         {/* Active ring */}
                         {isActive && (
