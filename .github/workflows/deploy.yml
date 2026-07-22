@@ -37,7 +37,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build project
-        run: pnpm run build --filter .
+        run: npx vite build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
